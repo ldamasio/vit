@@ -20,8 +20,8 @@ jobs:
       - name: Build and push Docker frontend image
         uses: docker/build-push-action@v5.0.0
         with: 
-          context: ./frontends/
-          file: ./frontends/docker/Dockerfile
+          context: ./frontend/
+          file: ./frontend/docker/Dockerfile
           push: true
           tags: | 
             ldamasio/vit-frontend-prod:0.0.${{github.run_number}}
