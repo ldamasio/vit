@@ -1,0 +1,10 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: vit-frontend-prod-cert
+spec:
+  secretName: vit-frontend-prod-cert
+  issuerRef:
+    name: vit-frontend-prod-issuer
+  dnsNames:
+  - vitoriarestaurante.com.br

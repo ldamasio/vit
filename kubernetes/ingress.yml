@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vit-frontend-prod-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "vit-frontend-prod-clusterissuer"
+spec:
+  ingressClassName: "public"
+  tls:
+  - hosts:
+    - vitoriarestaurante.com.br
+    secretName: vit-frontend-prod-secret
+  rules:
+  - host: vitoriarestaurante.com.br
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: vit-frontend-prod-svc
+            port:
+              number: 80
